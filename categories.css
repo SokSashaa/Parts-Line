@@ -1,0 +1,91 @@
+.categories {
+    text-align: center;
+}
+
+.btn-circle-cat {
+    width: 130px;
+    height: 130px;
+    border-radius: 100px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+    margin: 10px;
+    border-color: black;
+    border-width: 3px;
+}
+
+.btn-circle-cat:hover {
+    border-color: black;
+}
+
+.cont1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+    justify-content: center;
+    padding-inline: 100px;
+}
+
+.cont1 div {
+    margin: 10px;
+
+}
+
+#original {
+    background: url('Files/shan_cat.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#non-original {
+    background: url('Files/car-cat.png');
+    background-position: center;
+    background-size: cover;
+}
+
+
+#repair-parts {
+    background: url('Files/repair-parts.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#oil {
+    background: url('Files/oil.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#acb {
+    background: url('Files/acb.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#spec-cars {
+    background: url('Files/spec-cars.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#autocosmetics {
+    background: url('Files/autocosmetics.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.p-catalog {
+    font-size: 38px;
+    margin: 70px;
+}
+
+.chat-bot {
+    position: fixed;
+    border-radius: 100px;
+    bottom: 50px;
+    right: 76px;
+    width: 70px;
+    height: 70px;
+    border-width: 0;
+}

@@ -1,0 +1,158 @@
+x .qcarousel-control-next,
+.qcarousel-control-prev
+
+/*, .carousel-indicators */
+    {
+    filter: invert(100%);
+    font-size: 1.5em;
+}
+
+#include_img_first {
+    position: relative;
+    display: inline;
+    left: 216px;
+    position: absolute;
+    top: 80px;
+    width: 455px;
+    height: 270px;
+}
+
+#include_img_first p {
+    font-size: 50px;
+}
+
+#include_img_second {
+    position: relative;
+    left: 537px;
+    position: absolute;
+    top: 144px;
+    width: 448px;
+    height: 219px;
+    text-align: left;
+}
+
+#include_img_second p {
+    font-size: 50px;
+}
+
+#include_img_third {
+    position: relative;
+    left: 582px;
+    position: absolute;
+    top: 144px;
+    width: 448px;
+    height: 219px;
+    text-align: left;
+}
+
+#include_img_third {
+    font-size: 50px;
+}
+
+#cont {
+    background: #625655;
+    display: flex;
+    text-align: center;
+}
+
+#cont div {
+    flex-basis: 33.333333%;
+}
+
+.btn-circle {
+    width: 94px;
+    height: 94px;
+    border-radius: 100px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 20px;
+    margin: 10px;
+}
+
+
+.podcat {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.podcat-block {
+    display: flex;
+    align-items: center;
+    padding: 0 44px;
+    font-size: 40px;
+    border-radius: 20px;
+
+}
+
+#podcat-lamps {
+    background: #CE682C;
+    color: white;
+}
+
+#podcat-lamps::before {
+    content: url('Files/lamps.png');
+}
+
+#podcat-car-rims {
+    color: black;
+    background: #F9C983;
+}
+
+#podcat-car-rims::before {
+    content: url('Files/rims.png');
+}
+
+#podcat-acb {
+    background: #F95454;
+    color: white;
+}
+
+#podcat-acb::after {
+    content: url('Files/dvig.png');
+}
+
+#podcat-shin {
+    background: #4481F8;
+    color: black;
+}
+
+#podcat-shin::after {
+    content: url('Files/shin.png');
+}
+
+footer {
+    background: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: white;
+    text-align: center;
+    padding: 3%;
+    font-size: 20px;
+}
+
+.fa-brands {
+    font-size: 40px;
+    margin: 3px;
+}
+
+.social {
+    text-align: left;
+}
+
+
+.chat-bot {
+    position: fixed;
+    border-radius: 100px;
+    bottom: 50px;
+    right: 94px;
+    width: 70px;
+    height: 70px;
+    border-width: 0;
+    z-index: 3;
+}

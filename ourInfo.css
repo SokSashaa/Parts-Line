@@ -1,0 +1,115 @@
+#ourInfoP {
+    text-align: left;
+    font-size: 45px;
+    width: 30%;
+    height: 20%;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 160px;
+}
+
+.discription {
+    background: url('Files/backgroundOur.png');
+    margin: 100px 0px 0px 0px;
+    width: 100%;
+    height: 650px
+}
+
+#first {
+    width: 20%;
+    height: 300px;
+    font-size: 35px;
+    position: relative;
+    left: 220px;
+    top: 120px;
+}
+
+#second {
+    width: 40%;
+    height: 140px;
+    font-size: 40px;
+    text-align: right;
+    position: relative;
+    right: 170px;
+    left: 718px;
+    bottom: 250px;
+}
+
+
+.marq:nth-last-of-type(1) {
+    font-size: 30px;
+    background-color: red;
+    color: white;
+}
+
+.marquee {
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* padding: 8px 0 4px 0; */
+    background: black;
+    margin-top: 10px;
+    white-space: nowrap;
+
+}
+
+.marquee:nth-last-of-type(1) {
+    width: 105.5%;
+    bottom: 60px;
+    right: 80px;
+    /* padding: 8px 0 4px 0; */
+    background: red;
+    transform: rotate(-7deg);
+
+}
+
+.marquee .track {
+    white-space: no-wrap;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    align-items: center;
+
+    width: 100%;
+    left: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.marquee .track:nth-of-type(1) {
+    animation: marqueeAnim 15s linear infinite;
+
+}
+
+.marquee .track:nth-of-type(2) {
+    animation: marqueeAnim 15s linear 3.1s infinite;
+}
+
+.marquee .track:nth-of-type(3) {
+    animation: marqueeAnim 15s linear 6.2s infinite;
+}
+
+.marquee .track:nth-of-type(4) {
+    animation: marqueeAnim 15s linear 9.3s infinite;
+}
+
+.marquee .track:nth-of-type(5) {
+    animation: marqueeAnim 15s linear 12.4s infinite;
+}
+
+
+@keyframes marqueeAnim {
+    0% {
+        left: 100%;
+    }
+
+    50% {
+        left: -100%;
+    }
+
+    100% {
+        left: -100%
+    }
+}
