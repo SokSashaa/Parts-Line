@@ -25,6 +25,10 @@
     background-size: cover;
 }
 
+#icon-prod {
+    margin: 0px;
+}
+
 #list {
     font-size: 30px;
     margin: 20px;
