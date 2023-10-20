@@ -1,0 +1,113 @@
+.main {
+    position: relative;
+    left: 20%;
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
+
+.main1 {
+    display: grid;
+    margin: 50px;
+    margin-left: 80px;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.description {
+    width: 30%;
+    font-size: 30px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.icon-pr {
+    width: 250px;
+    height: 250px;
+    /* background: url('Files/oil-idemitsu.png');
+    background-position: center;
+    background-size: cover; */
+}
+
+#titleH1 {
+    text-align: center;
+}
+
+.info {
+    width: 300px;
+    height: 180px;
+    border-radius: 70px;
+    background: #FFD9D9;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 35px;
+    justify-content: center;
+    margin-right: 80px;
+}
+
+.info img {
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+}
+
+.element-korz1 {
+    background: #C3554B;
+    width: 15%;
+    height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    /* flex-direction: row;*/
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 40px;
+}
+
+.element-korz1 .btn {
+    font-size: 35px;
+    flex-grow: 1;
+    box-shadow: none;
+}
+
+.element-korz1 #count {
+    flex-grow: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.count {
+    font-size: 27px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20%;
+}
+
+.zakaz {
+    position: relative;
+    right: -70%;
+    bottom: 10px;
+    width: 300px;
+    height: 70px;
+    border-radius: 70px;
+    background: #C3554B;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
+    color: white;
+
+}

@@ -68,12 +68,12 @@ const js = `{
     ]
 }`;
 const jsonObj = JSON.parse(js);
-
+let index = -1;
 
 window.addEventListener('load', () => {
     const searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('article')) {
-        const index = searchParams.get('article');
+        index = searchParams.get('article');
         const lin = jsonObj["items"][index];
 
         const name = lin["name"].toUpperCase();
@@ -127,6 +127,18 @@ korz.addEventListener('click', () => {
         countEl.innerText = count === 1 ? '1' : --count;
         priceEl.innerText = priceOneEl * count + ' Руб.';
     })
+    let arr = [];
+    if (localStorage.getItem("korzina") != null) {
+        arr.push(localStorage.getItem("korzina").split(","));
+        arr.push(index.toString());
+        localStorage.setItem("korzina", arr.toString());
+    }
+    else {
+        const arr = [];
+        arr.push(index.toString());
+        localStorage.setItem("korzina", arr.toString());
+    }
+
 });
 
 
