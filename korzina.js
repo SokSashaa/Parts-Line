@@ -78,29 +78,96 @@ window.addEventListener('load', () => {
         const newEl = document.createElement("div");
         newEl.classList.add("main1");
         oldEl.replaceWith(newEl);
-        const newEls = (count, desc, img) => {
-            return `<div class="row1">
+        const newEls = (price, desc, img, count, item) => {
+            return `<div class="row1" id="${item}">
                 <div class="icon-pr" style="background: url('${img}');background-position: center; background-size: cover;" ></div>
                 <div class="description">${desc}</div>
                 <div class="element-korz1">
                     <button type="button" class="btn" id="btn2">-</button>
-                    <p id="count">1</p>
+                    <p id="countEl">${count}</p>
                     <button type="button" class="btn" id="btn1">+</button>
                 </div>
-                <div class="count">${count} Руб.</div>
+                <div id="count">${price * count} Руб.</div>
             </div>`
         }
 
         const arr = localStorage.getItem("korzina").split(",");
+        let arrCount = localStorage.getItem("count").split(",");
         arr.forEach((item, index) => {
-            console.log(item);
-            console.log(lik[`${item}`]);
             const desc = lik[`${item}`]["description"];
             const img = lik[item]["img"];
-            const count = lik[item]["price"];
-            const el = newEls(count, desc, img);
+            const price = lik[item]["price"];
+            let count = arrCount[index];
+            const el = newEls(price, desc, img, count, item);
             newEl.insertAdjacentHTML('beforeend', el);
         });
 
+        const changeCount = (arr, index, count) => {
+            const indForFind = arr.indexOf(index);
+            arrCount[indForFind] = count.toString();
+            localStorage.setItem("count", arrCount.toString());
+        };
+
+        const removeCount = (item) => {
+            const indexEl = arr.indexOf(item);
+            arrCount.splice(indexEl, 1);
+            arr.splice(indexEl, 1);
+            localStorage.setItem("korzina", arr.toString());
+            localStorage.setItem("count", arrCount.toString());
+        };
+
+
+        const plus = document.querySelectorAll("#btn1");
+        plus.forEach((element) => {
+            element.addEventListener('click', (e) => {
+                const index = e.target.parentNode.parentNode.id;
+                const countEl = e.target.parentNode.childNodes[3];
+                const priceEl = e.target.parentNode.parentNode.childNodes[7];
+                let count = Number(countEl.innerHTML);
+                let price = Number(priceEl.innerHTML.trim().replace("Руб.", "")) / count;
+
+                ++count;
+                countEl.innerHTML = count;
+
+                priceEl.innerHTML = count * price + " Руб.";
+
+                changeCount(arr, index, count);
+
+            });
+        });
+
+        const minus = document.querySelectorAll("#btn2");
+        minus.forEach((element) => {
+            element.addEventListener('click', (e) => {
+                const index = e.target.parentNode.parentNode.id;
+                const countEl = e.target.parentNode.childNodes[3];
+                const priceEl = e.target.parentNode.parentNode.lastElementChild;
+                let count = Number(countEl.innerHTML);
+                const price = Number(priceEl.innerHTML.trim().replace("Руб.", "")) / count;
+
+                if (count === 1) {
+                    count = 0;
+                    const parentChild = document.querySelector(".main1");
+                    const childEl = document.getElementById(`${index}`);
+                    parentChild.removeChild(childEl);
+                    removeCount(index);
+
+                }
+                else {
+                    countEl.innerHTML = --count;
+                }
+
+                priceEl.innerHTML = count * price + " Руб.";
+
+                changeCount(arr, index, count);
+            });
+        });
+
+
+
+
+
     }
+
 });
+

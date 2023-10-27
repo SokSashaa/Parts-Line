@@ -7,7 +7,17 @@ const js = `{
             "name": "Idemitsu",
             "img": "Files/oil-idemitsu.png",
             "price": "3969",
-            "description": "Моторное масло Idemitsu Gasoline & Diesel Fully-Synthetic SN/CF 30015048-746 5W40 4"
+            "description": "Моторное масло Idemitsu Gasoline & Diesel Fully-Synthetic SN/CF 30015048-746 5W40 4",
+            "params": [
+                {
+                    "type": "моторное масло",
+                    "obl": "двигатель",
+                    "v":"4",
+                    "vyaz": "5w30",
+                    "classAPI" : "SN",
+                    "classILSAC" : "GF-5"
+                }
+            ]
         },
         {
             "article": "00002",
@@ -70,9 +80,87 @@ const js = `{
 const jsonObj = JSON.parse(js);
 let index = -1;
 
+let arr = [];
+let arrCount = [];
+
+let korz = document.querySelector('.btn-circle-korz');
+const korzina = document.querySelector('.korzina');
+let count = 0;
+const newEls = (count) => {
+    return `<div class="element-korz">
+                <button type="button" class="btn" id="btn2">-</button>
+                <p id="count">${String(count).trim().replace('-', '')}</p>
+                <button type="button" class="btn" id="btn1">+</button>
+            </div>`
+}
+const oldEl = () => {
+    return `<button type="button" class="btn btn-light btn-circle-korz">Добавить в
+корзину</button>`};
+
+const newElsKorz = () => {
+    const removeEl = document.querySelector(".element-korz");
+    removeEl.remove();
+    const korzinka = document.querySelector(".button-korz");
+    const old = oldEl();
+    korzinka.insertAdjacentHTML('beforeend', old);
+    korz = document.querySelector('.btn-circle-korz');
+    korz.addEventListener('click', () => { list(); });
+    removeCount(index);
+};
+
+const removeCount = (item) => {
+    const indexEl = arr.indexOf(item);
+    arrCount.splice(indexEl, 1);
+    arr.splice(indexEl, 1);
+    if (arr.length === 0) {
+        count = 0;
+        localStorage.removeItem("korzina");
+        localStorage.removeItem("count");
+    }
+    else {
+        localStorage.setItem("korzina", arr.toString());
+        localStorage.setItem("count", arrCount.toString());
+    }
+
+};
+
+const addElements = (count) => {
+    const newEl1 = newEls(count);
+    korz.outerHTML = '';
+    korzina.insertAdjacentHTML('beforeend', newEl1);
+
+    const btnMinus = document.querySelector('.element-korz').querySelector('#btn2')
+    const btnPlus = document.querySelector('.element-korz').querySelector('#btn1')
+
+    const countEl = document.getElementById('count');
+    const priceEl = document.getElementById('price');
+
+    let price = Number(priceEl.innerText.replace('Руб.', ''));
+    let priceOneEl = price / count;
+
+
+    const changeCount = (arr, index, count) => {
+        const indForFind = arr.indexOf(index);
+        arrCount[indForFind] = count;
+        localStorage.setItem("count", arrCount.toString());
+    };
+
+    btnPlus.addEventListener('click', () => {
+        countEl.innerText = ++count;
+        priceEl.innerText = priceOneEl * count + ' Руб.';
+        changeCount(arr, index, count);
+    })
+    btnMinus.addEventListener('click', () => {
+        countEl.innerText = count === 1 ? newElsKorz() : --count;
+        priceEl.innerText = priceOneEl * count + ' Руб.';
+        changeCount(arr, index, count);
+    })
+};
+
 window.addEventListener('load', () => {
     const searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('article')) {
+
         index = searchParams.get('article');
         const lin = jsonObj["items"][index];
 
@@ -89,56 +177,47 @@ window.addEventListener('load', () => {
 
         const priceHref = lin["price"];
         const pr = document.querySelector("#price");
-        pr.innerHTML = `${priceHref} Руб.`;
+        pr.innerHTML = priceHref + " Руб.";
+
+        if (localStorage.getItem("korzina") != null) {
+            arr = localStorage.getItem("korzina").split(",");
+            arrCount = localStorage.getItem("count").split(",");
+            const ind = arr.indexOf(index);
+            if (ind !== -1) {
+                count = arrCount[ind];
+                pr.innerHTML = count * priceHref + " Руб."
+                addElements(count);
+            }
+        }
     }
 
 });
-
-const korz = document.querySelector('.btn-circle-korz');
-const korzina = document.querySelector('.korzina');
-let count = 0;
-const newEls = (count) => {
-    return `<div class="element-korz">
-                <button type="button" class="btn" id="btn2">-</button>
-                <p id="count">${String(count).trim().replace('-', '')}</p>
-                <button type="button" class="btn" id="btn1">+</button>
-            </div>`
-}
-korz.addEventListener('click', () => {
+const list = () => {
     count++;
-    const newEl1 = newEls(count);
-    korz.outerHTML = '';
-    korzina.insertAdjacentHTML('beforeend', newEl1);
-
-    const btnMinus = document.querySelector('.element-korz').querySelector('#btn2')
-    const btnPlus = document.querySelector('.element-korz').querySelector('#btn1')
-
-    const countEl = document.getElementById('count');
-    const priceEl = document.getElementById('price');
-    // let count = Number(countEl.innerText);
-    let price = Number(priceEl.innerText.replace('Руб.', ''));
-    let priceOneEl = price / count;
-
-    btnPlus.addEventListener('click', () => {
-        countEl.innerText = ++count;
-        priceEl.innerText = priceOneEl * count + ' Руб.';
-    })
-    btnMinus.addEventListener('click', () => {
-        countEl.innerText = count === 1 ? '1' : --count;
-        priceEl.innerText = priceOneEl * count + ' Руб.';
-    })
-    let arr = [];
+    addElements(count);
     if (localStorage.getItem("korzina") != null) {
-        arr.push(localStorage.getItem("korzina").split(","));
+        //todo сделать тут не .toString, а json.stringify. Когда достаёшь делай json.parse. Так везде
+        //
+        arr = localStorage.getItem("korzina").split(",");
         arr.push(index.toString());
         localStorage.setItem("korzina", arr.toString());
+
+        arrCount = localStorage.getItem("count").split(",");
+        arrCount.push(count.toString());
+        localStorage.setItem("count", arrCount.toString());
     }
     else {
-        const arr = [];
         arr.push(index.toString());
+        arrCount.push(count.toString());
         localStorage.setItem("korzina", arr.toString());
+        localStorage.setItem("count", arrCount.toString());
     }
+};
 
+korz.addEventListener('click', () => {
+    list();
 });
+
+
 
 

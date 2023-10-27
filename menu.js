@@ -64,7 +64,7 @@ const js = `{
             "img": "Files/oil-elf.png",
             "price": "5190",
             "description": "Моторное масло Elf Evolution 900 SXR 194878 5W40 4 л"
-        }
+        }   
     ]
 }`;
 const jsonObj = JSON.parse(js);
@@ -154,32 +154,25 @@ const setCurrentPage = (pageNum) => {
           </div>
         </div>`;
 
-        const prod = document.querySelectorAll('.title-describtion');
-        prod.forEach(element => {
-            element.addEventListener('mouseover', () => {
-                document.documentElement.style.cursor = "pointer";
-            });
-            element.addEventListener('mouseout', () => {
-                document.documentElement.style.cursor = "default";
-            });
-            element.addEventListener('click', (e) => {
-                location.href = `Product.html?article=${e.target.id}`;
-            });
-        });
         el.classList.add("hidden");
         if (index >= prevRange && index < currRange) {
             el.classList.remove("hidden");
             paginatedList.appendChild(el);
         }
     });
+    const prod = document.querySelectorAll('.title-describtion');
+    prod.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            document.documentElement.style.cursor = "pointer";
+        });
+        element.addEventListener('mouseout', () => {
+            document.documentElement.style.cursor = "default";
+        });
+        element.addEventListener('click', (e) => {
+            location.href = `Product.html?article=${e.target.id}`;
+        });
+    });
 
-
-    // listItems.forEach((item, index) => {
-    //     item.classList.add("hidden");
-    //     if (index >= prevRange && index < currRange) {
-    //         item.classList.remove("hidden");
-    //     }
-    // });
 };
 
 window.addEventListener("load", () => {

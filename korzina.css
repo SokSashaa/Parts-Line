@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .description {
@@ -82,13 +83,13 @@
     box-shadow: none;
 }
 
-.element-korz1 #count {
+.element-korz1 #countEl {
     flex-grow: 2;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.count {
+#count {
     font-size: 27px;
     text-align: center;
     margin-top: auto;
