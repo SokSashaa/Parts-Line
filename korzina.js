@@ -68,6 +68,7 @@ const js = `{
 }`;
 const jsonObj = JSON.parse(js);
 const lik = jsonObj["items"];
+let sum = 0;
 
 
 
@@ -98,9 +99,13 @@ window.addEventListener('load', () => {
             const img = lik[item]["img"];
             const price = lik[item]["price"];
             let count = arrCount[index];
+            sum += Number(price) * Number(count);
             const el = newEls(price, desc, img, count, item);
             newEl.insertAdjacentHTML('beforeend', el);
         });
+
+        const sumEl = document.querySelector(".priceZakaz");
+        sumEl.innerHTML = `Общая сумма: ${sum} Руб.`;
 
         const changeCount = (arr, index, count) => {
             const indForFind = arr.indexOf(index);
@@ -162,12 +167,7 @@ window.addEventListener('load', () => {
                 changeCount(arr, index, count);
             });
         });
-
-
-
-
-
     }
-
 });
+
 
