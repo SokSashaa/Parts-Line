@@ -7,8 +7,13 @@ x .qcarousel-control-next,
     font-size: 1.5em;
 }
 
+#logoNavbar {
+    width: 154px;
+    height: 100px;
+}
+
 #include_img_first {
-    position: relative;
+    /* position: relative; */
     display: inline;
     left: 216px;
     position: absolute;
@@ -22,7 +27,7 @@ x .qcarousel-control-next,
 }
 
 #include_img_second {
-    position: relative;
+    /* position: relative; */
     left: 537px;
     position: absolute;
     top: 144px;
@@ -36,7 +41,7 @@ x .qcarousel-control-next,
 }
 
 #include_img_third {
-    position: relative;
+    /* position: relative; */
     left: 582px;
     position: absolute;
     top: 144px;
@@ -95,36 +100,47 @@ x .qcarousel-control-next,
     color: white;
 }
 
-#podcat-lamps::before {
+/* #podcat-lamps::before {
     content: url('Files/lamps.png');
-}
+
+} */
 
 #podcat-car-rims {
     color: black;
     background: #F9C983;
 }
 
-#podcat-car-rims::before {
+/* #podcat-car-rims::before {
     content: url('Files/rims.png');
-}
+} */
 
 #podcat-acb {
     background: #F95454;
     color: white;
 }
 
-#podcat-acb::after {
-    content: url('Files/dvig.png');
+#podcat-acb .imagesPodcat {
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* #podcat-acb::after {
+    content: url('Files/dvig.png');
+} */
 
 #podcat-shin {
     background: #4481F8;
     color: black;
 }
 
-#podcat-shin::after {
-    content: url('Files/shin.png');
+#podcat-shin .imagesPodcat {
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* #podcat-shin::after {
+    content: url('Files/shin.png');
+} */
 
 footer {
     background: black;
@@ -155,4 +171,120 @@ footer {
     height: 70px;
     border-width: 0;
     z-index: 3;
+}
+
+@media (max-width:1352px) {
+
+    .podcat-block {
+        display: flex;
+        align-items: center;
+        padding: 0 44px;
+        font-size: 35px;
+        border-radius: 20px;
+    }
+
+    .imagesPodcat {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media (max-width:1040px) {
+    .podcat {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imagesPodcat {
+        width: 30%;
+        height: 30%;
+    }
+
+    .btn-circle {
+        width: 84px;
+        height: 84px;
+    }
+
+    .social {
+        text-align: center;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #include_img_first {
+        left: 10%;
+        position: absolute;
+        top: 2%;
+        width: 455px;
+        height: 270px;
+    }
+
+    #include_img_first p {
+        font-size: 30px;
+    }
+
+}
+
+@media(max-width:580px) {
+    .imagesPodcat {
+        width: 30%;
+        height: 30%;
+    }
+
+    .podcat-block {
+        font-size: 25px;
+    }
+
+    .btn-circle {
+        width: 64px;
+        height: 64px;
+        font-size: 15px;
+    }
+
+    #logoNavbar {
+        width: 134px;
+        height: 80px;
+    }
+
+    .social {
+        text-align: center;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+
+    #include_img_first {
+        left: -5%;
+        position: absolute;
+        top: 2%;
+        width: 455px;
+        height: 270px;
+    }
+
+    #include_img_first p {
+        font-size: 15px;
+    }
+
+
+    .chat-bot {
+        position: absolute;
+        border-radius: 100px;
+        top: 3%;
+        right: 45%;
+        width: 40px;
+        height: 40px;
+        z-index: 3;
+    }
+
+    .chat-bot img {
+        width: 40px;
+        height: 40px;
+    }
 }

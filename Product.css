@@ -6,7 +6,6 @@
     position: relative;
 }
 
-
 .prod {
     margin: 30px 50px 0px 50px;
     display: grid;
@@ -81,13 +80,13 @@
 }
 
 #oil-header {
-    position: relative;
-    top: -90px;
-    right: 70px;
-    z-index: 0;
-    object-fit: cover;
-    max-height: 100%;
-    width: 100%;
+    position: absolute;
+    top: -5%;
+    right: 11%;
+    z-index: -1;
+    object-fit: none;
+    height: 50%;
+    width: 35%;
 }
 
 #list li {
@@ -118,4 +117,198 @@
     flex-grow: 2;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.column:nth-last-of-type(1) {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+@media (max-width:1192px) {
+    #list {
+        font-size: 25px;
+    }
+
+    .prod {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #oil-header {
+        position: relative;
+        right: -50%;
+    }
+
+    .column:nth-last-of-type(1) {
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        left: 50%;
+    }
+
+}
+
+@media (max-width:800px) {}
+
+@media (min-width:801px) and (max-width:1080px) {
+    #oil-header {
+        width: 50%;
+        right: -35%;
+    }
+}
+
+@media (max-width:500px) {
+    .prod {
+        margin: 30px 50px 0px 20px;
+        grid-template-columns: 55% 55%;
+    }
+
+    .icon-prod {
+        width: 150px;
+        height: 210px;
+    }
+
+    #list {
+        font-size: 15px;
+        margin: 0px;
+    }
+
+    #list li {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    #oil-header {
+        width: 70%;
+        right: -30%;
+        object-fit: cover;
+
+    }
+
+    .korzina {
+        width: 300px;
+        height: 100px;
+    }
+
+    .btn-circle-korz {
+        width: 200px;
+        height: 40px;
+        margin: 0px;
+        font-size: 15px;
+    }
+
+    .btn-circle-korz:hover {
+        width: 200px;
+        height: 40px;
+        margin: 0px;
+
+    }
+
+    #price {
+        font-size: 20px;
+        margin: 10px 0px 5px 0px;
+    }
+
+    .column:nth-last-of-type(1) {
+        left: 20%;
+    }
+
+    .titleH {
+        position: absolute;
+        font-size: small;
+        top: 30%;
+        left: 50%
+    }
+
+    .chat-bot {
+        top: 1%;
+        right: 40%;
+        background-color: white;
+    }
+
+    .element-korz {
+        width: 250px;
+        height: 40px;
+        font-size: 25px;
+    }
+
+    .element-korz .btn {
+        font-size: 35px;
+    }
+}
+
+@media (min-width:501px) and (max-width:800px) {
+
+    #oil-header {
+        height: 40%;
+        width: 60%;
+        right: -30%;
+        object-fit: cover;
+    }
+
+    /* .icon-prod {
+        width: 285px;
+        height: 420px;
+    } */
+
+    /* .titleH {
+        position: absolute;
+        font-size: medium;
+        top: 35%;
+        left: 50%
+    } */
+
+    .chat-bot {
+        top: 1%;
+        right: 35%;
+        background-color: white;
+    }
+
+    .icon-prod {
+        width: 220px;
+        height: 320px;
+    }
+
+    .prod {
+        margin: 30px 50px 0px 20px;
+        grid-template-columns: 55% 55%;
+    }
+
+    #list {
+        font-size: 20px;
+        margin: 0px;
+    }
+
+    .korzina {
+        width: 350px;
+        height: 130px;
+    }
+
+    #price {
+        font-size: 25px;
+        margin: 10px 0px 15px 0px;
+    }
+
+    .btn-circle-korz {
+        width: 250px;
+        height: 50px;
+        margin: 0px;
+        font-size: 20px;
+    }
+
+    .btn-circle-korz:hover {
+        width: 200px;
+        height: 40px;
+        margin: 0px;
+    }
+
+    .titleH {
+        position: absolute;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+
 }

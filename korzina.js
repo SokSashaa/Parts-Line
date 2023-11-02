@@ -90,7 +90,16 @@ window.addEventListener('load', () => {
                 </div>
                 <div id="count">${price * count} Руб.</div>
             </div>`
-        }
+        };
+        const newOldEl =
+            `<div class="info">
+                <img src="Files/info.png">
+                <p>Ваша корзина пуста</p>
+            </div>
+            <img src="Files/korzin.png">`;
+
+        const footerKorz = `<div class="priceZakaz">Общая сумма: 5555 Руб.</div>
+        <div class="zakaz">Оформить заказ</div>`;
 
         const arr = localStorage.getItem("korzina").split(",");
         let arrCount = localStorage.getItem("count").split(",");
@@ -103,9 +112,31 @@ window.addEventListener('load', () => {
             const el = newEls(price, desc, img, count, item);
             newEl.insertAdjacentHTML('beforeend', el);
         });
+        const foot = document.createElement('div');
+        foot.classList.add('container-fluid');
+        foot.classList.add('footerZakaz');
+        foot.innerHTML = footerKorz;
+        newEl.insertAdjacentElement('beforeend', foot);
+
+        const getSum = () => {
+            let sumEls = 0;
+            const Els = document.querySelectorAll("#count");
+            Els.forEach((item) => {
+                const s = Number((item.innerHTML).replace('Руб.', ''));
+                sumEls += s;
+            });
+            return sumEls;
+        };
+
+        const changePrice = (sum) => {
+            sumEl.innerHTML = `Общая сумма: ${sum} Руб.`;
+        };
+
 
         const sumEl = document.querySelector(".priceZakaz");
-        sumEl.innerHTML = `Общая сумма: ${sum} Руб.`;
+        changePrice(sum);
+
+
 
         const changeCount = (arr, index, count) => {
             const indForFind = arr.indexOf(index);
@@ -117,8 +148,21 @@ window.addEventListener('load', () => {
             const indexEl = arr.indexOf(item);
             arrCount.splice(indexEl, 1);
             arr.splice(indexEl, 1);
-            localStorage.setItem("korzina", arr.toString());
-            localStorage.setItem("count", arrCount.toString());
+            if (arr.length === 0) {
+                count = 0;
+                localStorage.removeItem("korzina");
+                localStorage.removeItem("count");
+                const o = document.createElement('div');
+                o.classList.add("main");
+                o.innerHTML = newOldEl;
+                const q = document.querySelector(".main1");
+                q.replaceWith(o);
+
+            }
+            else {
+                localStorage.setItem("korzina", arr.toString());
+                localStorage.setItem("count", arrCount.toString());
+            }
         };
 
 
@@ -137,6 +181,8 @@ window.addEventListener('load', () => {
                 priceEl.innerHTML = count * price + " Руб.";
 
                 changeCount(arr, index, count);
+                const s = getSum();
+                changePrice(s);
 
             });
         });
@@ -165,6 +211,9 @@ window.addEventListener('load', () => {
                 priceEl.innerHTML = count * price + " Руб.";
 
                 changeCount(arr, index, count);
+
+                const s = getSum();
+                changePrice(s);
             });
         });
     }

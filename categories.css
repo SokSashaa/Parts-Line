@@ -89,3 +89,150 @@
     height: 70px;
     border-width: 0;
 }
+
+footer {
+    background: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: white;
+    text-align: center;
+    padding: 3%;
+    font-size: 20px;
+}
+
+.fa-brands {
+    font-size: 40px;
+    margin: 3px;
+}
+
+.social {
+    text-align: left;
+}
+
+#cont {
+    background: #625655;
+    display: flex;
+    text-align: center;
+}
+
+#cont div {
+    flex-basis: 33.333333%;
+}
+
+.btn-circle {
+    width: 94px;
+    height: 94px;
+    border-radius: 100px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 20px;
+    margin: 10px;
+}
+
+@media (max-width:850px) {
+    .cont1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+        justify-content: center;
+        padding-inline: 100px;
+    }
+
+}
+
+@media (max-width:540px) {
+    .btn-circle-cat {
+        width: 80px;
+        height: 80px;
+        border-radius: 100px;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 16px;
+        margin: 10px;
+        border-color: black;
+        border-width: 3px;
+    }
+
+    .btn-circle {
+        width: 84px;
+        height: 84px;
+    }
+
+    .p-catalog {
+        display: none;
+    }
+
+    .chat-bot {
+        position: absolute;
+        border-radius: 100px;
+        top: 3%;
+        right: 40%;
+        width: 40px;
+        height: 40px;
+        z-index: 3;
+    }
+
+    .chat-bot img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social {
+        text-align: center;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+    #logoNavbar {
+        width: 134px;
+        height: 80px;
+    }
+
+}
+
+@media (max-width:400px) {
+    .chat-bot {
+        position: absolute;
+        border-radius: 100px;
+        top: 3%;
+        right: 45%;
+        width: 40px;
+        height: 40px;
+        z-index: 3;
+    }
+
+    .chat-bot img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn-circle {
+        width: 64px;
+        height: 64px;
+        font-size: 15px;
+    }
+}
+
+/* @media (min-width:401px)and(max-width:580px) {
+    .chat-bot {
+        position: absolute;
+        border-radius: 100px;
+        top: 3%;
+        right: 30%;
+        width: 40px;
+        height: 40px;
+        z-index: 3;
+    }
+
+    .chat-bot img {
+        width: 40px;
+        height: 40px;
+    }
+
+} */

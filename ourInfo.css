@@ -1,3 +1,54 @@
+.btn-circle {
+    width: 94px;
+    height: 94px;
+    border-radius: 100px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 20px;
+    margin: 10px;
+}
+
+#cont {
+    background: #625655;
+    display: flex;
+    text-align: center;
+}
+
+#cont div {
+    flex-basis: 33.333333%;
+}
+
+footer {
+    background: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: white;
+    text-align: center;
+    padding: 3%;
+    font-size: 20px;
+}
+
+.fa-brands {
+    font-size: 40px;
+    margin: 3px;
+}
+
+.social {
+    text-align: left;
+}
+
+.chat-bot {
+    position: fixed;
+    border-radius: 100px;
+    bottom: 50px;
+    right: 94px;
+    width: 70px;
+    height: 70px;
+    border-width: 0;
+    z-index: 3;
+}
+
 #ourInfoP {
     text-align: left;
     font-size: 45px;
@@ -30,9 +81,8 @@
     font-size: 40px;
     text-align: right;
     position: relative;
-    right: 170px;
-    left: 718px;
-    bottom: 250px;
+    right: -50%;
+    bottom: 45%;
 }
 
 
@@ -111,5 +161,19 @@
 
     100% {
         left: -100%
+    }
+}
+
+@media (max-width:1280px) {
+
+    #second {
+        right: -45%;
+        /* left: 718px; */
+        bottom: 45%;
+    }
+
+    .marquee:nth-last-of-type(1) {
+        width: 110%;
+
     }
 }

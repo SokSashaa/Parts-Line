@@ -1,9 +1,9 @@
 .main {
     position: relative;
-    left: 20%;
     display: flex;
-    flex-direction: row;
-    margin: 50px;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px 0px 50px 30px;
+    justify-content: center;
 }
 
 .main1 {
@@ -120,4 +120,234 @@
 .footerZakaz {
     text-align: center;
     justify-content: center;
+}
+
+@media (max-width:900px) {
+    #imgKorz {
+        width: 40%;
+        height: 40%;
+    }
+
+    .info {
+        width: 250px;
+        height: 140px;
+        font-size: 25px;
+    }
+
+    footer {
+        margin-top: 65%;
+    }
+}
+
+@media (max-width:500px) {
+    #imgKorz {
+        width: 40%;
+        height: 40%;
+    }
+
+    .info {
+        width: 250px;
+        height: 140px;
+        font-size: 20px;
+    }
+
+    .info img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .main {
+        justify-content: right;
+    }
+
+    footer {
+        margin-top: 65%;
+    }
+
+
+}
+
+@media (max-width:1100px) {
+
+    .row1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 350px 0.1fr 0.1fr;
+        margin-bottom: 30px;
+        justify-items: center;
+    }
+
+    .element-korz1 {
+        grid-column: 2;
+        width: 30%;
+        position: relative;
+        bottom: 145%;
+    }
+
+    .description {
+        grid-column: 2;
+        font-size: 25px;
+        width: 55%;
+    }
+
+    #count {
+        grid-column: 2;
+        width: 30%;
+        position: relative;
+        bottom: 90%;
+    }
+
+    .icon-pr {
+        grid-column: 1;
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width:900px) {
+
+    .element-korz1 {
+        bottom: 245%;
+    }
+
+    .description {
+        position: relative;
+        bottom: 20%;
+    }
+
+    #count {
+        bottom: 250%;
+        width: 35%;
+    }
+
+    .icon-pr {
+        width: 300px;
+        height: 300px;
+    }
+
+    .zakaz {
+        right: -60%;
+    }
+
+    .priceZakaz {
+        width: 25%;
+        font-size: 30px;
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+
+@media (max-width:812px) {
+    #count {
+        bottom: 145%;
+    }
+
+    .element-korz1 {
+        width: 45%;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .zakaz {
+        right: -50%;
+    }
+
+}
+
+@media (max-width:700px) {
+    .icon-pr {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* 
+    .priceZakaz {
+        width: 25%;
+        font-size: 30px;
+        margin-left: 0;
+        margin-right: auto;
+    } */
+
+    .zakaz {
+        right: -50%;
+        bottom: 80px;
+        width: 250px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .row1 {
+        grid-template-columns: 190px 1fr;
+    }
+}
+
+@media (max-width:550px) {
+    .row1 {
+        grid-template-columns: 140px 1fr;
+    }
+
+    .zakaz {
+        right: -40%;
+        font-size: 20px;
+    }
+
+    .priceZakaz {
+        font-size: 25px;
+        width: 30%;
+    }
+
+    .icon-pr {
+        position: relative;
+        top: 70px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .description {
+        font-size: 20px;
+    }
+
+    #count {
+        font-size: 20px;
+    }
+
+}
+
+@media(max-width:480px) {
+    .row1 {
+        grid-template-columns: 120px 1fr;
+        margin-bottom: -40px;
+    }
+
+    .zakaz {
+        right: -25%;
+        width: 200px;
+    }
+
+    .priceZakaz {
+        font-size: 20px;
+        width: 40%;
+        position: relative;
+        right: 25%;
+    }
+
+    .icon-pr {
+        right: 30px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    #count {
+        font-size: 20px;
+        bottom: 250%;
+    }
+
+    .element-korz1 {
+        width: 80%;
+        bottom: 350%;
+    }
 }
